@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Email Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="particles-container"></div>
+    <div class="form-content">
+        <div class="flex">
+            <h1>AI-Based Email Generator App</h1>
+            <div class="description">
+                <p>This tool is powered by a specially fine tuned LLM to respond to emails more effectively. Simply add the email to respond to, and instructions like "be concise" and see the magic.</p>
+            </div> 
+
+            {% if not text %}
+            <div class="email-input">
+                <form action="/" method="post">
+                    <div class="form-group">
+                        <label for="reply">Do you wish to reply or compose?</label>
+                        <select id="reply" name="reply">
+                            <option value="reply" selected>Reply</option> <!-- Set "Reply" as the default selected option -->
+                            <option value="compose">Compose</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="email-data-group">
+                        <h3>Add the email to respond to:</h3>
+                        <textarea id="email_data" name="email_data" placeholder="Enter your email" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h3>Add instructions for the email:</h3>
+                        <textarea id="response_instructions" name="response_instructions" placeholder="Enter your instructions"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="generate-button">Generate My Email</button>
+                    </div>
+                </form>
+            </div>
+            {% endif %}
+            <script>
+                // JavaScript to conditionally show/hide the email_data textarea
+                const replySelect = document.getElementById('reply');
+                const emailDataGroup = document.getElementById('email-data-group');
+                const emailDataTextarea = document.getElementById('email_data');
+                
+                replySelect.addEventListener('change', () => {
+                    if (replySelect.value === 'reply') {
+                        emailDataGroup.style.display = 'block'; // Show the textarea
+                        emailDataTextarea.required = true; // Make the textarea required
+                    } else {
+                        emailDataGroup.style.display = 'none'; // Hide the textarea
+                        emailDataTextarea.required = false; // Make the textarea optional
+                    }
+                });
+            </script>
+
+            {% if text %}
+            <div class="generated-email">
+                <h2>Generated Email:</h2>
+                <p>{{ text }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='particles-config.js') }}"></script>
+</body>
+</html>

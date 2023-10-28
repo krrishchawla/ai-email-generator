@@ -1,0 +1,91 @@
+/* Set the gradient background to text only */
+h1 {
+    background-image: linear-gradient(to right, #0077cc, #00ff6e, #f2ff00);
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #0077cc;
+    background-size: 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Set the background to black and text color to white for the body */
+body {
+    background-color: #000;
+    color: #fff;
+    text-align: center; /* Center-align text */
+    font-family: sans-serif;
+}
+
+.generated-email {
+    width: 650px;
+}
+
+
+textarea {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    width: 500px; 
+    height: 100px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* Style the text inside the textareas to be white */
+textarea {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+}
+
+/* Center-align elements with the "flex" class */
+.flex {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align children horizontally */
+    padding: 20px;
+}
+
+/* Add styles for the "Generate Email" button */
+.generate-button {
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding inside the button */
+    cursor: pointer; /* Change cursor to a hand on hover */
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+/* Style the button on hover with gradient background and white text */
+.generate-button:hover {
+    background-image: linear-gradient(to right, #0077cc, #00ff6e, #f2ff00);
+    color: #000; /* Text color on hover */
+}
+
+
+#particles-container {
+    position: fixed; /* Set the particles container position to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Set a lower z-index for the particles to be in the background */
+}
+
+/* Center-align elements with the "form-content" class */
+.form-content {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align children horizontally */
+    padding: 20px;
+    position: relative; /* Set the container position to relative */
+    z-index: 2; /* Set a z-index for the container to overlay particles */
+}
+
+.description {
+    width: 650px;
+}
+
+
