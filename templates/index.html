@@ -3,6 +3,7 @@
 <head>
     <title>AI Email Generator</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="particles-container"></div>
@@ -37,22 +38,8 @@
                 </form>
             </div>
             {% endif %}
-            <script>
-                // JavaScript to conditionally show/hide the email_data textarea
-                const replySelect = document.getElementById('reply');
-                const emailDataGroup = document.getElementById('email-data-group');
-                const emailDataTextarea = document.getElementById('email_data');
-                
-                replySelect.addEventListener('change', () => {
-                    if (replySelect.value === 'reply') {
-                        emailDataGroup.style.display = 'block'; // Show the textarea
-                        emailDataTextarea.required = true; // Make the textarea required
-                    } else {
-                        emailDataGroup.style.display = 'none'; // Hide the textarea
-                        emailDataTextarea.required = false; // Make the textarea optional
-                    }
-                });
-            </script>
+
+            <script src="{{ url_for('static', filename='reply_handler.js') }}"></script>
 
             {% if text %}
             <div class="generated-email">
