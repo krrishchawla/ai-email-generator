@@ -22,5 +22,9 @@ def process_form():
 
     return render_template('index.html', text=text)  # Pass the 'text' variable to the template
 
+@app.route('/fine-tune',)
+def fine_tune():
+    return "Will add on-site fine tuning soon!"
+
 if __name__ == '__main__':
     app.run(debug=True)
